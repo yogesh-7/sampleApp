@@ -81,7 +81,9 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (!it.isSuccessful) return@addOnCompleteListener
                 showLoading(true)
-                saveUserToFirebase()
+                val intent = Intent(applicationContext, HomeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }.addOnFailureListener {
                 showLoading(false)
                 Toast.makeText(this,getString(R.string.register_error), Toast.LENGTH_SHORT).show()
@@ -90,25 +92,5 @@ class RegisterActivity : AppCompatActivity() {
 
 
 
-    private fun saveUserToFirebase() {
-
-        Log.d("MainActivity", "saveUserToFirebase" )
-        val uid= FirebaseAuth.getInstance().uid ?:""
-        val ref =FirebaseDatabase.getInstance().getReference("/users/$uid")
-        val  user= User(uid,binding.usernameEditTextRegister.text.toString(),"")
-        ref.setValue(user).addOnSuccessListener {
-            showLoading(false)
-
-            Log.d("MainActivity", "addOnSuccessListener" )
-
-            val intent = Intent(applicationContext, HomeActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-        }.addOnFailureListener {
-            showLoading(false)
-            Toast.makeText(this,getString(R.string.register_error),Toast.LENGTH_SHORT).show()
-            Log.d("MainActivity", "addOnFailureListener"+it.suppressedExceptions )
-        }
-    }
 }
 

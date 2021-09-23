@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="visible"
-        android:progressTint="@color/purple_200"
+        android:progressTint="@color/white"
         android:id="@+id/progress_bar_login"/>
 
 
@@ -102,7 +102,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="back to registration"
-                android:textColor="@android:color/black"
+                android:textColor="@color/purple_500"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 />
