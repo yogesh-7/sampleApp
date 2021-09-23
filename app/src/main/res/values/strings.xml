@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">sampleApp</string>
+    <string name="user_name">User Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="register_error">Faild to Create a User </string>
+    <string name="login_error">Faild to Login a User </string>
+    <string name="email_password_error">Please Enter text in Email &amp; Password</string>
+    <string name="username_email_password_error">Please Enter text in UserName , Email &amp; Password</string>
+
+
+
+    <string name="already_have_an_account">Already have an account?</string>
+</resources>
